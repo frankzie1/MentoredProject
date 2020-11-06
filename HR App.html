@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shafeeq's HR App</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+    <h1>Employee Management</h1>
+    <table>
+        <tr>
+            <td>
+                <!-- html form for CRUD operations-->
+                <form onsubmit="event.preventDefault();onFormSubmit()"; autocomplete="off"> <!--to avoid autocomplete when creating new employee-->
+                    <div>
+                        <label>NI Number</label><label class="validation-error hide" id="ninumberValidationError">Required field</label>
+                        <input type="text" name="ninumber" id="ninumber">
+                    </div>
+                    <div>
+                        <label>Full Name</label><label class="validation-error hide" id="ninumberValidationError">Required field</label>
+                        <input type="text" name="fullname" id="fullname">
+                    </div>
+                    <div>
+                        <label>Phone Number</label>
+                        <input type="text" name="phone" id="phone">
+                    </div>
+                    <div>
+                        <label>Address</label>
+                        <input type="text" name="address" id="address">
+                    </div>
+                    <div>
+                        <label>Department</label>
+                        <input type="text" name="department" id="department">
+                    </div>
+                    <div class="form-action-buttons">
+                        <input type="submit" value="Cancel" onclick="resetForm()">
+                        <input type="submit" value="Submit">
+                    </div>
+                </form>
+            </td>
+           
+            <!-- table to list all records-->
+            <td>
+                <table class="list" id="employeeList">
+                    <thead>
+                        <tr>
+                            <th>NI Number</th>
+                            <th>Full Name</th>
+                            <th>Phone Number</th>
+                            <th>Address</th>
+                            <th>Department</th>
+                            <th>
+                                <select class="filter" id="departments" onchange="filteredData()">
+                                    <option value="0" selected disabled hidden>Filter by Department</option>
+                                    <option value="allDep" class="filter">All Departments</option>
+                                    <option value="IT" class="filter">IT</option>
+                                    <option value="Sales" class="filter">Sales</option>
+                                    <option value="HR" class="filter"> HR</option>
+                                </select>
+                            </th>
+
+                        </tr>
+                    </thead>
+                    <tbody id="myTable">
+
+                    </tbody>
+
+                </table>
+                
+            </td>
+        </tr>
+
+        <tr>
+            
+        </tr>
+
+    </table>
+
+    <script src="records.js"></script>
+    <script src="HRApp.js"></script>
+
+</body>
+</html>
